@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <p>Lista de tareas</p>
+        <p>Hecho por Álvaro Alarcón Bermejo</p>
+    </nav>
+    <main>
+
+        <div id="projects">
+            <div class="cards">
+                <div class="taskForm" hidden>
+                    <label for="title">Título</label>
+                    <input type="text" class="title">
+                    <label for="description">Descripción</label>
+                    <textarea class="description"></textarea>
+                    <label for="date">Fecha límite</label>
+                    <input class="date" type="date">
+                    <label for="priority">Prioridad</label>
+                    <select class="priority" name="priority">
+                        <option value="high">Alta</option>
+                        <option value="medium">Media</option>
+                        <option value="low">Baja</option>
+                    </select>
+                    <label for="notes">Notas</label>
+                    <textarea class="notes"></textarea>
+                    <button class="addNew">Añadir</button>
+                </div>
+
+                <div class="newCards"></div>
+            </div>
+        </div>
+        <div id="bottomBar">
+            <button class="home"></button>
+            <button class="barAdd"></button>
+            <button class="settings"></button>
+        </div>
+    </main>
+    
+    <script src="app.js"></script>
+</body>
+</html>
