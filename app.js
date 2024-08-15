@@ -1,24 +1,18 @@
-function getTasks() {
-    const tasksString = localStorage.getItem('tasks');
-    // Check if tasksString is valid JSON and not "undefined" or empty
-    if (tasksString && tasksString !== "undefined") {
-        try {
-            return JSON.parse(tasksString); // Parse the string back into an array
-        } catch (e) {
-            console.error("Error parsing JSON from localStorage:", e);
-            // If parsing fails, return an empty array and clear the corrupted data
-            localStorage.removeItem('tasks');
-            return [];
-        }
-    }
-    return []; // If no tasks are stored, return an empty array
-}
-
 function initializeApp() {
-    tasks = getTasks();
+    const storedTasks = localStorage.getItem('tasks');
+    if (storedTasks) {
+      try {
+        tasks = JSON.parse(storedTasks);
+      } catch (e) {
+        console.error("Error parsing JSON from localStorage:", e);
+        tasks = []; // Set tasks to an empty array if parsing fails
+      }
+    } else {
+      tasks = []; // Set tasks to an empty array if no data is stored
+    }
     console.log("Loaded tasks:", tasks);
     drawScreen();
-}
+  }
 
 // Clear corrupted data from localStorage before initializing
 window.addEventListener('load', () => {
@@ -135,16 +129,15 @@ settingsButton.addEventListener("click", () => {
 
 function deleteTask(index) {
     tasks.splice(index, 1);
+    saveData()
     drawScreen();
 }
 
 function completeTask(index) {
     tasks.splice(index, 1);
+    saveData();
     drawScreen();
 }
-
-const tasksString = JSON.stringify(tasks);
-localStorage.setItem('tasks', tasksString);
 
 function saveData() {
     const tasksString = JSON.stringify(tasks);
