@@ -60,6 +60,7 @@ nav {
 
 button {
     background-color: var(--accents);
+    color: black;
     border-style: none;
     padding: 10px;
     font-weight: 600;
@@ -144,6 +145,7 @@ margin: 10px auto;
 .card .cardButtons .deleteButton{
     background-color: var(--red-accent);
     box-shadow: #A63D36 4px 4px 0 0;;
+    color: black;
 }
 
 .card .cardButtons .deleteButton:active {
