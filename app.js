@@ -61,11 +61,18 @@ function addNewTask() {
     console.log(task)
     tasks.push(task);
     saveData();
+
     drawScreen(tasks);
 }
 
 
 function drawScreen() {
+    document.querySelector('.title').value = "";
+    document.querySelector('.description').value = "";
+    document.querySelector('.date').value = "";
+    document.querySelector('.priority').value = "";
+    document.querySelector('.notes').value = "";
+
     const newCards = document.querySelector(".newCards");
     newCards.innerHTML = "";
     tasks.forEach((task, index) => {
